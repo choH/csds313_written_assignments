@@ -1,0 +1,9 @@
+.DS_Store
+
+.pdf
+
+article*
+!article.pdf
+!article??.pdf
+!*/split_by_question/*.pdf
+!article.tex
