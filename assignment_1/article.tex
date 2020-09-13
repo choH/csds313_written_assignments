@@ -215,7 +215,22 @@ plt.show()
 
 It seems depite the significant increase on daily new cases, the amount of deaths -- altough still sad to say -- is actually rather steady on the graph. Which our first thought is the large \ilc{Y}-axis scale on \ilc{cases} makes growth of \ilc{deaths} hardly noticeable, but with close examination it is actually not the case. Thus, our guess it is that during June to Augest, the pressure on US medical system is not as hard, so that health care works can actually ``control'' the death of COVID-19 to a certain extent.
 
+\section*{(10)}
 
+\begin{lstlisting}
+df_holder = (df['dateRep'] >= '2020-04-01') & (df['dateRep'] <= '2020-4-30')
+df_holder = df.loc[df_holder]
+df_holder = df_holder[['dateRep','countriesAndTerritories','cases','popData2019', 'continentExp']]
+sa_major_countries = ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'Guyana', 'Paraguay', 'Peru', 'Suriname', 'Uruguay', 'Venezuela']
+df_sa_case = df_holder.loc[df['countriesAndTerritories'].isin(sa_major_countries)]
+df_sa_case = df_sa_case.groupby(['countriesAndTerritories','popData2019'], as_index = False )['cases'].sum()
 
+df_sa_case['case_per_pop'] = df_sa_case['cases'] / df_sa_case['popData2019'] * 100
+df_sa_case.sort_values(by = ['case_per_pop'], ascending = False)
+print(df_sa_case.head())
+
+\end{lstlisting}
+
+We have \ilc{Argentina} to be the most infected major South America country during April interm of cases per population, as $0.007\%$ of its population was infected by new cases tested in April.
 
 \end{document}
