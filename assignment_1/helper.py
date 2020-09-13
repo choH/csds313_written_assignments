@@ -96,4 +96,18 @@ def p9():
     plt.show()
     # df_us_case.plot(x = 'dateRep', y = 'deaths')
     # plt.show()
-p9()
+
+
+def p10():
+    df_holder = (df['dateRep'] >= '2020-04-01') & (df['dateRep'] <= '2020-4-30')
+    df_holder = df.loc[df_holder]
+    df_holder = df_holder[['dateRep','countriesAndTerritories','cases','popData2019', 'continentExp']]
+    sa_major_countries = ['Argentina', 'Bolivia', 'Brazil', 'Chile', 'Colombia', 'Ecuador', 'Guyana', 'Paraguay', 'Peru', 'Suriname', 'Uruguay', 'Venezuela']
+    df_sa_case = df_holder.loc[df['countriesAndTerritories'].isin(sa_major_countries)]
+    df_sa_case = df_sa_case.groupby(['countriesAndTerritories','popData2019'], as_index = False )['cases'].sum()
+
+    df_sa_case['case_per_pop'] = df_sa_case['cases'] / df_sa_case['popData2019'] * 100
+    df_sa_case.sort_values(by = ['case_per_pop'], ascending = False)
+    print(df_sa_case.head())
+
+p10()
