@@ -85,3 +85,15 @@ def p8():
     #print(df2)
     df2 = df2.sort_values('deaths',ascending=False)
     print(df2)
+
+def p9():
+    df_holder = (df['dateRep'] >= '2020-06-01') & (df['dateRep'] <= '2020-08-01')
+    df_holder = df.loc[df_holder]
+    df_holder = df_holder[['dateRep','countriesAndTerritories','cases','deaths']]
+    df_us_case = df_holder.loc[df['countriesAndTerritories'] == 'United_States_of_America']
+
+    df_us_case.plot(x = 'dateRep', y = ['deaths', 'cases'])
+    plt.show()
+    # df_us_case.plot(x = 'dateRep', y = 'deaths')
+    # plt.show()
+p9()
