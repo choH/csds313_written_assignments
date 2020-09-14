@@ -110,4 +110,19 @@ def p10():
     df_sa_case.sort_values(by = ['case_per_pop'], ascending = False)
     print(df_sa_case.head())
 
-p10()
+def p11():
+    df_holder = df[['dateRep', 'countriesAndTerritories','cases','popData2019', 'continentExp']]
+    df_continent_case = df_holder.groupby(['continentExp'], as_index = False )['cases'].sum()
+
+    df_country_pop = df_holder.groupby(['countriesAndTerritories', 'continentExp'], as_index = False )['popData2019'].first()
+    df_continent_pop = df_country_pop.groupby(['continentExp'], as_index = False)['popData2019'].sum()
+    df_continent = pd.merge(df_continent_case, df_continent_pop, on = 'continentExp')
+    df_continent['case_per_m'] = df_continent['cases'] / df_continent['popData2019'] * 1000000
+
+    df_continent = df_continent.sort_values(by = ['case_per_m'], ascending = False)
+    df_continent_case = df_continent_case.sort_values(by = ['cases'], ascending = False)
+    print(df_continent_case.head())
+    print(df_continent.head())
+
+
+# p11()
