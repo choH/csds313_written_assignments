@@ -74,17 +74,10 @@ There are \textbf{11} columns and \textbf{38283} rows in the spreadsheet.
 
 \section*{(2)}
 \begin{lstlisting}
-    L = []
-    i = 0
-    for country in df['countriesAndTerritories']:
-    if country not in L:
-        L.append(country)
-        print(country)
-    i += 1
-    print(i)
+    print(df['countriesAndTerritories'].nunique())
 \end{lstlisting}
 
-There are \textbf{209} countries in total.
+There are \textbf{210} countries in total.
 
 \begin{lstlisting}
     print(df.dateRep.min())

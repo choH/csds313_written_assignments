@@ -8,6 +8,10 @@ def p1():
     print(df.shape[0])
 
 def p2():
+    print(df['countriesAndTerritories'].nunique())
+    print(df.dateRep.min(), df.dateRep.max())
+
+def p3_1():
     countries = []
     populations = []
     i = 0
@@ -24,7 +28,7 @@ def p2():
     variance = df2['population'].var()
     print(variance)
 
-def p3():
+def p3_2():
     i = 0
     countries = []
     populations = []
@@ -125,4 +129,4 @@ def p11():
     print(df_continent.head())
 
 
-# p11()
+p2_alt()
