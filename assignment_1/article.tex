@@ -77,7 +77,7 @@ There are \textbf{11} columns and \textbf{38283} rows in the spreadsheet.
     print(df['countriesAndTerritories'].nunique())
 \end{lstlisting}
 
-There are \textbf{210} countries in total.
+There are \textbf{210} countries in total. Note this number does include ``countries and Territories'' like \ilc{Cases\_on\_an\_international\_conveyance\_Japan}. We decide to not to exclude it as there might be (and in fact, are) other listings under the column that are by definition not a country nor a territory. For the sake of consitency, we include everything listed in the data set.
 
 \begin{lstlisting}
     print(df.dateRep.min())
