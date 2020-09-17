@@ -58,11 +58,16 @@ def p4():
     plt.show()
 
 def p5():
+    # mask = (df['dateRep'] >= '2020-06-01') & (df['dateRep'] <= '2020-07-01')
+    # df2 = df.loc[mask]
+    # df2 = df2[['countriesAndTerritories','cases']]
+    # df2 = df2.sort_values('cases',ascending=False)
     mask = (df['dateRep'] >= '2020-06-01') & (df['dateRep'] <= '2020-07-01')
     df2 = df.loc[mask]
     df2 = df2[['countriesAndTerritories','cases']]
+    df2 = df2.groupby(['countriesAndTerritories']).sum()
     df2 = df2.sort_values('cases',ascending=False)
-    print(df2)
+    print(df2.head())
 
 def p6():
     mask = (df['dateRep'] >= '2020-06-01') & (df['dateRep'] <= '2020-07-01')
@@ -129,4 +134,4 @@ def p11():
     print(df_continent.head())
 
 
-p2_alt()
+p5()

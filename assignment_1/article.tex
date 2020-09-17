@@ -146,10 +146,11 @@ Since the first bin is significantly larger than the others, this distribution s
     mask = (df['dateRep'] >= '2020-06-01') & (df['dateRep'] <= '2020-07-01')
     df2 = df.loc[mask]
     df2 = df2[['countriesAndTerritories','cases']]
+    df2 = df2.groupby(['countriesAndTerritories']).sum()
     df2 = df2.sort_values('cases',ascending=False)
-    print(df2)
+    print(df2.head())
 \end{lstlisting}
-\textbf{Brazil} had the greatest increase in the number of cases from June 1st to July 1st. The increase is $54,771$.
+\textbf{Brazil} had the greatest increase in the number of cases from June 1st to July 1st. The increase is $903,601$ cases. Note we interpret this question as which country have the greatest number of new cases tested from June 1st to July 1st.
 
 \section*{(6)}
 \begin{lstlisting}
@@ -161,7 +162,7 @@ Since the first bin is significantly larger than the others, this distribution s
     df2 = df2.sort_values('cases',ascending=False)
     print(df2)
 \end{lstlisting}
-\textbf{Brazil} had the greatest average increase in the number of cases per day from June 1st to July 1st. The average increase is $29148.419355$.
+\textbf{Brazil} had the greatest average increase in the number of cases per day from June 1st to July 1st. The average increase is $29,148.419355$.
 
 \section*{(7)}
 \begin{lstlisting}
