@@ -355,4 +355,40 @@ The actual histogram plot for movie votes is:
 We can tell it fits the normal distribution the most since the histogram seems to have a bell shape. The threshold appears around 6,
 which agrees with the statistic we calculated before(around 6.22).
 
+
+
+\section*{Problem 3}
+
+\subsection*{(i)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{{fig/fig_p3_1.png}}
+    \caption{\textcolor{blue}{$E(MLE_M)$} v. \textcolor{red}{$E((M))$}}
+\end{figure}
+
+Note the \textit{MLE} for the population is just $M$ itself, thus $E(M) = M$. We simulated \ilc{1000} trials with $M = 3000$, where \textcolor{blue}{$E(MLE_M)$} is in blue, and its distance to \textcolor{red}{$E((M))$} is in red.
+
+Note most of the trials there is a noticiable red bar between them, which shows the $M_{MLE}$ on sample is not an unbiased estimator of $M$.
+
+\subsection*{(ii)}
+
+
+
+$M_{MVU}$ showed a lower variance over our \ilc{1000} trials simulation. The avergae finding are below:
+
+\begin{itemize}
+    \item $Var(M_{MEAN})$: \ilc{2000277.10133029}
+    \item $Var(M_{MVU})$: \ilc{2854104731.1510997}
+\end{itemize}
+
+We also picked \ilc{20} trials to visualize, not there the difference of the two estimators' variances are huge, as we can't even see the variance of $M_{MVU}$ without some extreme zooming.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{{fig/fig_p3_2.png}}
+    \caption{\textcolor{blue}{$Var(M_{MEAN})$} v. \textcolor{orange}{$Var(M_{MVU})$}}
+\end{figure}
+
+
 \end{document}
