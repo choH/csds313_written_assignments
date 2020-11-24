@@ -8,6 +8,8 @@ import json
 
 df = pd.read_csv('assignment_3/data/p1b.csv', header=None)
 
+
+# The below method is borrowed from lyx on https://stackoverflow.com/a/24826348
 def compute_MI(x, y):
     sum_mi = 0.0
     x_value_list = np.unique(x)
